@@ -28,11 +28,11 @@ conda env create -f environment.yml
 ```
 ## How to calculate the KaRR score of a specific GLM/your own GLM quickly?
 1. Download the data from [google drive](https://drive.google.com/drive/folders/1N86h0LL9GS8BVsnXwl42vQXGISVA2vB-?usp=sharing), and move it to `./data/` .
-2. Generate the valid object alias for your own model: Specify the model_name, check/modify the tokenizer in the following code and run it.
+2. Generate the valid object aliases for your own model: Specify the model_name, check/modify the tokenizer in the following code and run it.
 ```bash
 python $YOUR_PROJECT_PATH/code/data_preprocess/gen_obj_alias_clean_dict.py
 ```
-3. Generate the probabilities:  Specify the model_name, check/modify the tokenizer and model loading method in `$YOUR_PROJECT_PATH//code/simple_rr_main_batch_update.py` and run as follows:
+3. Generate the probabilities:  Specify the model_name, check/modify the tokenizer and model loading method in `$YOUR_PROJECT_PATH/code/simple_rr_main_batch_update.py` and run as follows:
 ```bash
 bash $YOUR_PROJECT_PATH/bash/simple_rr_main_batch_run.sh
 ```
@@ -42,7 +42,7 @@ python $YOUR_PROJECT_PATH/code/data_readers/score_ranker.py
 ```
 
 ## Prepare Data for Knowledge Assessment
-We release the code for our data preprocessing in the following. If you only use the preprocess data for knowledge assessment, just download the data from the google drive link above and skip this section.
+We have released the code for our data preprocessing below. If you only intend to use the preprocessed data for knowledge assessment, you can simply download the data from the Google Drive link provided above and skip this section.
 
 ### 1. knowledge source
 We utilize T-REx knowledge graph as our primary source of symbolic knowledge. T-REx comprises 11 million triples that are aligned with 3.09 million Wikipedia abstracts; its quality is validated by extensive crowdsourcing evaluation.
