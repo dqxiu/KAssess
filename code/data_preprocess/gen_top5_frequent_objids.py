@@ -83,7 +83,7 @@ if __name__ == "__main__":
         new_obj2alias = dict()
     all_possible_objalias = dict()
     lama_relation_dict = dict()
-    with jsonlines.open('YOUR_PROJECT_PATHLAMA/data/relations.jsonl', 'r') as reader:
+    with jsonlines.open('YOUR_PROJECT_PATH/data/relations.jsonl', 'r') as reader:
         for line in reader:
             lama_relation_dict[line["relation"]] = line["template"]  
     with open("YOUR_PROJECT_PATHdata/cleaned_T_REx/obj2rel.json",'r') as load_f:

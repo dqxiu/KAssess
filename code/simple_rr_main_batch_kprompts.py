@@ -328,17 +328,17 @@ if __name__ == '__main__':
             all_trex = json.load(load_f)
     else:
         if 'freq' in exp_mode:
-            rootdir = "YOUR_PROJECT_PATHLAMA/data/my_TREx_freq"
+            rootdir = "YOUR_PROJECT_PATH/data/my_TREx_freq"
         elif 'false_p' in exp_mode:
-            rootdir = "YOUR_PROJECT_PATHLAMA/data/my_TREx_false_p"
+            rootdir = "YOUR_PROJECT_PATH/data/my_TREx_false_p"
         elif 'para' in exp_mode:
-            rootdir = "YOUR_PROJECT_PATHLAMA/data/my_TREx_para"
+            rootdir = "YOUR_PROJECT_PATH/data/my_TREx_para"
         elif 'orig' in exp_mode:
-            rootdir = "YOUR_PROJECT_PATHLAMA/data/my_TREx"
+            rootdir = "YOUR_PROJECT_PATH/data/my_TREx"
         elif 'false' in exp_mode:
-            rootdir = "YOUR_PROJECT_PATHLAMA/data/my_TREx_false"
+            rootdir = "YOUR_PROJECT_PATH/data/my_TREx_false"
         elif 'main' in exp_mode:
-            rootdir = "YOUR_PROJECT_PATHLAMA/data/my_TREx_main_new_test"
+            rootdir = "YOUR_PROJECT_PATH/data/my_TREx_main_new_test"
             
         all_trex = []
         list_path = os.listdir(rootdir)
@@ -401,7 +401,7 @@ if __name__ == '__main__':
         if para_name == 'a':
             para_name = ''
         if para_name != '':
-            with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/relations{para_name}.jsonl', 'r') as reader:
+            with jsonlines.open(f'YOUR_PROJECT_PATH/data/relations{para_name}.jsonl', 'r') as reader:
                 for line in reader:
                     line_rel =  line["relation"]
                     rel2alias[line_rel][random.sample(rel2alias[line_rel].keys(),1)[0]] = line["template"]

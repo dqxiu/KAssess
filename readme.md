@@ -16,8 +16,6 @@ This project hosts the code for implementing the statistical knowledge assessmen
 ---
 ## News
 We have released the code and data.
-- Please download the data from [google drive](https://drive.google.com/drive/folders/1N86h0LL9GS8BVsnXwl42vQXGISVA2vB-?usp=sharing), and move it to `./data/` .
-
 
 ## Introduction
 We introduce a statistical knowledge assessment method guided by latent variables and the KaRR metric, which quantifies a model's knowledge by computing its continuous probability across diverse text forms.  
@@ -27,6 +25,20 @@ We introduce a statistical knowledge assessment method guided by latent variable
 ## Pre-requisite
 ```bash
 conda env create -f environment.yml
+```
+## How to calculate the KaRR score of a specific GLM/your own GLM quickly?
+1. Download the data from [google drive](https://drive.google.com/drive/folders/1N86h0LL9GS8BVsnXwl42vQXGISVA2vB-?usp=sharing), and move it to `./data/` .
+2. Generate the valid object alias for your own model: Specify the model_name, check/modify the tokenizer in the following code and run it.
+```bash
+python $YOUR_PROJECT_PATH/code/data_preprocess/gen_obj_alias_clean_dict.py
+```
+3. Generate the probabilities:  Specify the model_name, check/modify the tokenizer and model loading method in `$YOUR_PROJECT_PATH//code/simple_rr_main_batch_update.py` and run as follows:
+```bash
+bash $YOUR_PROJECT_PATH/bash/simple_rr_main_batch_run.sh
+```
+4. Calculate the KaRR score. Modify the 
+```bash
+python $YOUR_PROJECT_PATH/code/data_readers/score_ranker.py
 ```
 
 ## Prepare Data for Knowledge Assessment

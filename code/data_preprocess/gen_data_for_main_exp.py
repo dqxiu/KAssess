@@ -72,7 +72,7 @@ if __name__ == '__main__':
     for rel_id in save_dict.keys(): 
         if rel_id not in rel2alias.keys():
             continue
-        with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/my_TREx_main_new/{rel_id}.jsonl', 'w') as writer:
+        with jsonlines.open(f'YOUR_PROJECT_PATH/data/my_TREx_main_new/{rel_id}.jsonl', 'w') as writer:
             sampled_items = random.sample(save_dict[rel_id], min(20,len(save_dict[rel_id])))
             rel2sampled_items[rel_id] = sampled_items
             for item in sampled_items:

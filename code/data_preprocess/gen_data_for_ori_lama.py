@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
     lama_relation_list = []
     ori_relations = dict()
-    with jsonlines.open('YOUR_PROJECT_PATHLAMA/data/relations.jsonl', 'r') as reader:
+    with jsonlines.open('YOUR_PROJECT_PATH/data/relations.jsonl', 'r') as reader:
         for line in reader:
             lama_relation_list.append(line["relation"])
             ori_relations[line["relation"]] = line
@@ -99,9 +99,9 @@ if __name__ == '__main__':
                 save_false_dict[str(fact_id)] = cur_false_fact
                 save_false_dict['rel_ids'].append(rel_id)
 
-    with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/relations1.jsonl', 'w') as writer1:
-        with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/relations2.jsonl', 'w') as writer2:
-            with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/relations3.jsonl', 'w') as writer3:
+    with jsonlines.open(f'YOUR_PROJECT_PATH/data/relations1.jsonl', 'w') as writer1:
+        with jsonlines.open(f'YOUR_PROJECT_PATH/data/relations2.jsonl', 'w') as writer2:
+            with jsonlines.open(f'YOUR_PROJECT_PATH/data/relations3.jsonl', 'w') as writer3:
                     valid_para_relations = []
                     para_relations1 = []
                     para_relations2 = []
@@ -124,7 +124,7 @@ if __name__ == '__main__':
 
     rel2sampled_items = dict() 
     for rel_id in save_dict.keys(): 
-        with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/my_TREx/{rel_id}.jsonl', 'w') as writer:
+        with jsonlines.open(f'YOUR_PROJECT_PATH/data/my_TREx/{rel_id}.jsonl', 'w') as writer:
             sampled_items = random.sample(save_dict[rel_id], min(100,len(save_dict[rel_id])))
             rel2sampled_items[rel_id] = sampled_items
             for item in sampled_items:
@@ -132,7 +132,7 @@ if __name__ == '__main__':
 
     for rel_id in save_dict.keys(): 
         if rel_id in all_paras.keys() and rel_id in valid_para_relations:
-            with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/my_TREx_para/{rel_id}.jsonl', 'w') as writer:
+            with jsonlines.open(f'YOUR_PROJECT_PATH/data/my_TREx_para/{rel_id}.jsonl', 'w') as writer:
                 sampled_items = rel2sampled_items[rel_id]
                 for item in sampled_items:
                     writer.write(item)
@@ -142,7 +142,7 @@ if __name__ == '__main__':
         if rel_id == 'rel_ids':
             continue
         if rel_id in lama_relation_list:
-            with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/my_TREx_false/{rel_id}.jsonl', 'w') as writer:
+            with jsonlines.open(f'YOUR_PROJECT_PATH/data/my_TREx_false/{rel_id}.jsonl', 'w') as writer:
                 sampled_items = rel2sampled_items[rel_id]
                 sampled_items_false = []
                 for sampled_item in sampled_items:

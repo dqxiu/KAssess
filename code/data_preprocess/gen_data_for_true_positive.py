@@ -27,7 +27,7 @@ if __name__ == '__main__':
     model_name = 'gpt2-xl'
     random.seed(1)
     print("⏰ Loading data....")
-    rootdir = "YOUR_PROJECT_PATHLAMA/data/my_TREx_false"
+    rootdir = "YOUR_PROJECT_PATH/data/my_TREx_false"
     all_paras = dict()
     false_fact_ids = []
     list_path = os.listdir(rootdir)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
         false_dict = json.load(load_f)
     lama_relation_list = []
     ori_relations = dict()
-    with jsonlines.open('YOUR_PROJECT_PATHLAMA/data/relations.jsonl', 'r') as reader:
+    with jsonlines.open('YOUR_PROJECT_PATH/data/relations.jsonl', 'r') as reader:
         for line in reader:
             lama_relation_list.append(line["relation"])
             ori_relations[line["relation"]] = line
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     for rel_id in save_dict.keys(): 
         sampled_items = random.sample(save_dict[rel_id], min(100,len(save_dict[rel_id])))
         rel2sampled_items[rel_id] = sampled_items
-        with jsonlines.open(f'YOUR_PROJECT_PATHLAMA/data/my_TREx_false_p/{rel_id}.jsonl', 'w') as writer:
+        with jsonlines.open(f'YOUR_PROJECT_PATH/data/my_TREx_false_p/{rel_id}.jsonl', 'w') as writer:
             
             sampled_items = rel2sampled_items[rel_id]
             for item in sampled_items:
